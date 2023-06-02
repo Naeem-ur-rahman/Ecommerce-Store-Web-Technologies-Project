@@ -87,6 +87,39 @@ section {
      background-color: var(--orange);
 }
 
+.flex-btn {
+     display: flex;
+     gap: 1rem;
+}
+
+.message {
+     position: sticky;
+     top: 0;
+     max-width: 1200px;
+     margin: 0 auto;
+     background-color: var(--light-bg);
+     padding: 2rem;
+     display: flex;
+     align-items: center;
+     gap: 1rem;
+     justify-content: space-between;
+}
+
+.message span {
+     font-size: 2rem;
+     color: var(--black);
+}
+
+.message i {
+     font-size: 2.5rem;
+     color: var(--red);
+     cursor: pointer;
+}
+
+.message i:hover {
+     color: var(--black);
+}
+
 .form-container {
      display: flex;
      justify-content: center;
@@ -158,14 +191,14 @@ section {
 
 /* media quries */
 
-@media (max-width:991px){
-     html{
+@media (max-width:991px) {
+     html {
           font-size: 55%;
      }
 }
 
-@media (max-width:450px){
-     html{
+@media (max-width:450px) {
+     html {
           font-size: 50%;
      }
 }

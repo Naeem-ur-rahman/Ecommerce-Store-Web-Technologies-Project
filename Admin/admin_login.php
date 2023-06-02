@@ -1,5 +1,26 @@
 <?php
-include '../components/connect.php'
+include '../components/connect.php';
+
+
+session_start();
+
+if (isset($_POST['submit'])) {
+     $name = $_POST['name'];
+     $name = filter_var($name, FILTER_SANITIZE_STRING);
+     $password = sha1($_POST['password']);
+     $password = filter_var($password, FILTER_SANITIZE_STRING);
+
+     $select_admin = $conn->prepare("SELECT * FROM `admins` WHERE name = ? AND password = ?");
+     $select_admin->execute([$name, $password]);
+
+     if ($select_admin->rowCount() > 0) {
+          $fetch_admin_id = $select_admin->fetch(PDO::FETCH_ASSOC);
+          $_SESSION['admin_id'] = $fetch_admin_id['id'];
+          header('location:admin_dashboard.php');
+     } else {
+          $message[] = "Incorrect Username or Password!";
+     }
+}
 
 ?>
 
@@ -22,6 +43,21 @@ include '../components/connect.php'
 </head>
 
 <body>
+
+     <?php
+     if (isset($message)) {
+          foreach ($message as $message) {
+               echo '
+          <div class="message">
+               <span>' . $message . '</span>
+               <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
+          </div>
+          ';
+          }
+     }
+
+     ?>
+
      <!-- admin login section start -->
      <section class="form-container">
           <form action="" method="post">
