@@ -1,0 +1,1 @@
+<?php echo '<a href="Admin/admin_login.php">Click for Website </a>' ?>
