@@ -233,12 +233,12 @@ section {
      padding-top: 1rem;
      width: 35rem;
      display: none;
-     animation: fadeIn .5s linear;
+     animation: fadeIn .1s linear;
 }
 
 @keyframes fadeIn {
      0% {
-          transform: translateY(2rem);
+          transform: translateY(1rem);
      }
 }
 

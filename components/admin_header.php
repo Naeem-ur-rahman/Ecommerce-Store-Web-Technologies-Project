@@ -12,9 +12,9 @@ if (isset($message)) {
 ?>
 <header class="header">
      <section class="flex">
-          <a href="dasboard.php" class="logo">Admin <span>Panel</span></a>
+          <a href="dashboard.php" class="logo">Admin <span>Panel</span></a>
           <nav class="navbar">
-               <a href="dasboard.php">Home</a>
+               <a href="dashboard.php">Home</a>
                <a href="products.php">Products</a>
                <a href="placed_orders.php">Orders</a>
                <a href="admin_accounts.php">Admins</a>
@@ -35,9 +35,9 @@ if (isset($message)) {
                <a href="update_profile.php" class="btn">update profile</a>
                <div class="flex-btn">
                     <a href="admin_login.php" class="option-btn">login</a>
-                    <a href="register_login.php" class="option-btn">register</a>
+                    <a href="register_admin.php" class="option-btn">register</a>
                </div>
-               <a href="../components/admin_logout.php" class="delete-btn">logout</a>
+               <a href="../components/admin_logout.php" onclick="return confirm('Logout from this website?');" class="delete-btn">logout</a>
           </div>
      </section>
 </header>

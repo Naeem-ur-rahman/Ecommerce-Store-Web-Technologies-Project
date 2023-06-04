@@ -1,1 +1,5 @@
-<?php echo '<a href="Admin/admin_login.php">Click for Website </a>' ?>
+<?PHP
+
+header('location:Admin/admin_login.php');
+
+?>
