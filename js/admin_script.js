@@ -16,3 +16,13 @@ window.onscroll = () => {
      navbar.classList.remove('active');
      profile.classList.remove('active');
 }
+
+subImages = document.querySelectorAll('.update-product .image-container .sub-images img');
+mainImage = document.querySelector('.update-product .image-container .main-image img');
+
+subImages.forEach(img => {
+     img.onclick = () => {
+          let src = img.getAttribute('src');
+          mainImage.src = src;
+     }
+});
