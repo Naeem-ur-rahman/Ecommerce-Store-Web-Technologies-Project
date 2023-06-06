@@ -9,6 +9,13 @@ if (!isset($admin_id)) {
      header('location:admin_login.php');
 }
 
+if (isset($_GET['delete'])) {
+     $delete_id = $_GET['delete'];
+     $delete_messages = $conn->prepare("DELETE from `messages` where id =?");
+     $delete_messages->execute([$delete_id]);
+     header('location:messages.php');
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -30,8 +37,35 @@ if (!isset($admin_id)) {
 </head>
 
 <body>
+     <?php include '../components/admin_header.php'; ?>
+     <section class="messages">
 
-     
+          <h1 class="heading">Messages</h1>
+          <div class="box-container">
+               <?php
+               $select_messages = $conn->prepare("Select * from   `messages`");
+               $select_messages->execute();
+               if ($select_messages->rowCount() > 0) {
+                    while ($fetch_messages = $select_messages->fetch(PDO::FETCH_ASSOC)) {
+               ?>
+                         <div class="box">
+                              <p>User id : <span><?= $fetch_messages['user_id']; ?></span></p>
+                              <p>Username <span><?= $fetch_messages['name']; ?></span></p>
+                              <p>Number <span><?= $fetch_messages['number']; ?></span></p>
+                              <p>email <span><?= $fetch_messages['email']; ?></span></p>
+                              <p>message <span><?= $fetch_messages['message']; ?></span></p>
+                              <a href="messages.php?delete=<?= $fetch_messages['id']; ?>" class="delete-btn" onclick="return confirm('Delete this message?');">delete</a>
+                         </div>
+               <?php
+                    }
+               } else {
+
+                    echo '<p class="empty">No Messages Available!</p>';
+               }
+               ?>
+          </div>
+     </section>
+
 
      <script src="../js/admin_script.js"></script>
 </body>

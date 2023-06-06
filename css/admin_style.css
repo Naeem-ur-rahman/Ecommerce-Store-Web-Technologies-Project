@@ -448,6 +448,126 @@ section {
      color: var(--black);
 }
 
+.placed-orders .box-container {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, 33rem);
+     gap: 1.5rem;
+     justify-content: center;
+     align-items: flex-start;
+}
+
+.placed-orders .box-container .box {
+     margin: 0 auto;
+     max-width: 80rem;
+     min-width: 250px;
+     background-color: var(--white);
+     border-radius: .5rem;
+     box-shadow: var(--box-shadow);
+     border: var(--border);
+     padding: 2rem;
+}
+
+.placed-orders .box-container .box p {
+     padding: .1rem 0;
+     line-height: 2;
+     font-size: 1.6rem;
+     color: var(--black);
+     text-transform: capitalize;
+}
+
+.placed-orders .box-container .box p span {
+     color: var(--main-color);
+     text-transform: none;
+}
+
+.placed-orders .box-container .box .drop-down {
+     margin: 1rem 0;
+     background-color: var(--light-bg);
+     padding: 1.4rem;
+     font-size: 1.6rem;
+     border: var(--border);
+     color: var(--black);
+     width: 100%;
+     border-radius: .5rem;
+     text-transform: capitalize;
+}
+
+
+
+
+
+
+
+
+.accounts .box-container {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, 100rem);
+     gap: 1.5rem;
+     justify-content: center;
+     align-items: flex-start;
+}
+
+.accounts .box-container .box {
+     margin: 0 auto;
+     width: 50rem;
+     min-width: 250px;
+     background-color: var(--white);
+     border-radius: .5rem;
+     box-shadow: var(--box-shadow);
+     border: var(--border);
+     padding: 2rem;
+     text-align: center;
+}
+
+.accounts .box-container .box p {
+     padding: .1rem 0;
+     line-height: 2;
+     font-size: 1.6rem;
+     color: var(--black);
+     text-transform: capitalize;
+}
+
+.accounts .box-container .box p span {
+     color: var(--main-color);
+     text-transform: none;
+}
+
+
+
+
+
+
+.messages .box-container {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, 33rem);
+     gap: 1.5rem;
+     justify-content: center;
+     align-items: flex-start;
+}
+
+.messages .box-container .box {
+     margin: 0 auto;
+     max-width: 80rem;
+     min-width: 250px;
+     background-color: var(--white);
+     border-radius: .5rem;
+     box-shadow: var(--box-shadow);
+     border: var(--border);
+     padding: 2rem;
+}
+
+.messages .box-container .box p {
+     padding: .1rem 0;
+     line-height: 2;
+     font-size: 1.6rem;
+     color: var(--black);
+     text-transform: capitalize;
+}
+
+.messages .box-container .box p span {
+     color: var(--main-color);
+     text-transform: none;
+}
 
 
 
@@ -507,6 +627,22 @@ section {
      }
 
      .show-products .box-container {
+          grid-template-columns: 1fr;
+     }
+
+     .placed-orders .box-container {
+          grid-template-columns: 1fr;
+     }
+
+     .accounts .box-container {
+          grid-template-columns: 1fr;
+     }
+
+     .accounts .box-container .box {
+          width: fit-content;
+     }
+
+     .messages .box-container {
           grid-template-columns: 1fr;
      }
 }

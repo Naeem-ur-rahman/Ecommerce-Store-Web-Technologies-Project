@@ -9,6 +9,21 @@ if (!isset($admin_id)) {
      header('location:admin_login.php');
 }
 
+if (isset($_GET['delete'])) {
+     $delete_id = $_GET['delete'];
+     $delete_user = $conn->prepare("DELETE from `users` where id =?");
+     $delete_user->execute([$delete_id]);
+     $delete_orders = $conn->prepare("DELETE from `orders` where user_id =?");
+     $delete_orders->execute([$delete_id]);
+     $delete_cart = $conn->prepare("DELETE from `cart` where user_id =?");
+     $delete_cart->execute([$delete_id]);
+     $delete_wishlist = $conn->prepare("DELETE from `wishlist` where user_id =?");
+     $delete_wishlist->execute([$delete_id]);
+     $delete_messages = $conn->prepare("DELETE from `messages` where user_id =?");
+     $delete_messages->execute([$delete_id]);
+     header('location:users_accounts.php');
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -30,8 +45,32 @@ if (!isset($admin_id)) {
 </head>
 
 <body>
+     <?php include '../components/admin_header.php'; ?>
+     <section class="accounts">
 
-     
+          <h1 class="heading">User Accounts</h1>
+          <div class="box-container">
+               <?php
+               $select_accounts = $conn->prepare("Select * from   `users`");
+               $select_accounts->execute();
+               if ($select_accounts->rowCount() > 0) {
+                    while ($fetch_accounts = $select_accounts->fetch(PDO::FETCH_ASSOC)) {
+               ?>
+                         <div class="box">
+                              <p>User id : <span><?= $fetch_accounts['id']; ?></span></p>
+                              <p>Username <span><?= $fetch_accounts['name']; ?></span></p>
+                              <a href="users_accounts.php?delete=<?= $fetch_accounts['id']; ?>" class="delete-btn" onclick="return confirm('Delete this account?');">delete</a>
+                         </div>
+               <?php
+                    }
+               } else {
+
+                    echo '<p class="empty">No Accounts Available!</p>';
+               }
+               ?>
+          </div>
+     </section>
+
 
      <script src="../js/admin_script.js"></script>
 </body>
