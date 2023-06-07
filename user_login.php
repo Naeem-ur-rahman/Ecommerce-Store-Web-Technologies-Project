@@ -61,6 +61,7 @@ if (isset($_POST['submit'])) {
                <input type="submit" value="login now" class="btn" name="submit">
                <p>don't have an account?</p>
                <a href="user_register.php" class="option-btn">register now</a>
+               <a href="Admin/admin_login.php" class="btn">Admin Login</a>
           </form>
 
      </section>
