@@ -12,7 +12,7 @@ if (isset($message)) {
 ?>
 <header class="header">
      <section class="flex">
-          <a href="home.php" class="logo"><span>Nurs </span>Shopie</a>
+          <a href="home.php" class="logo"><span>Trade Hub</span></a>
           <nav class="navbar">
                <a href="home.php">Home</a>
                <a href="about.php">About</a>
